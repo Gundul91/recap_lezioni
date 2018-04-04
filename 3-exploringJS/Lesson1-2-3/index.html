@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Lesson1-2</title>
+    <title>Lesson1-2-3-5</title>
     <link rel="stylesheet" href="css/app.css">
     <script src="js/app.js"></script>
 </head>
 <body>
   <a href="#maincontent" class="skip-link">Skip to main content</a>
-  <span class="desc-skip-link"> <- Arrivare con il tab al primo elemento della pagina </span>
+  <span class="desc-skip-link descrizione"> <- Arrivare con il tab al primo elemento della pagina </span>
   <nav>
     <a href="#">menu1</a>
     <a href="#">menu2</a>
@@ -19,7 +19,7 @@
     <div class="quali-tabbare">
 
       <h3>Quali elementi devono essere tabbabili</h3>
-      <img src="img/qualiElementiTab.jpg" />
+      <img src="img/qualiElementiTab.jpg" alt="element should focus" />
 
     </div>
 
@@ -30,27 +30,33 @@
       <ul id="group1" class="radiogroup">
         <li tabindex="0" class="radio" checked>
           Water
-          <span class="tab0"></span>
+          <span class="tab0 descrizione"></span>
         </li>
         <li tabindex="-1" class="radio">
           Tea
-          <span class="tab-1"></span>
+          <span class="tab-1 descrizione"></span>
         </li>
         <li tabindex="-1" class="radio">
           Coffee
-          <span class="tab-1"></span>
+          <span class="tab-1 descrizione"></span>
         </li>
         <li tabindex="-1" class="radio">
           Cola
-          <span class="tab-1"></span>
+          <span class="tab-1 descrizione"></span>
         </li>
         <li tabindex="-1" class="radio">
           Ginger Ale
-          <span class="tab-1"></span>
+          <span class="tab-1 descrizione"></span>
         </li>
       </ul>
 
     </div>
+
+    <input type="checkbox" checked id="checkProva" />
+    <!-- for="id" per collegarlo ad un altro DOM element -->
+    <label title="<input type='checkbox' checked id='checkProva' /> <label for='checkProva'>Checkbox con label di prova</label>" for="checkProva">Checkbox con label di prova</label>
+    <br />
+    <img class="semantics-image" src="img/semantics.jpg" alt="semantic tags" />
   </main>
   <footer class="link-utili">
     <h2>Link Utili</h2>
@@ -58,6 +64,7 @@
       <h4>WCAG guide line</h4>
       <li><a href="https://www.w3.org/TR/WCAG20/">W3 WCAG 2.0</a></li>
       <li><a href="https://webaim.org/standards/wcag/checklist">WebAIM WCAG 2.0 (check list)</a></li>
+      <li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#combobox">WAI-ARIA</a></li>
     </ul>
   </footer>
 </body>

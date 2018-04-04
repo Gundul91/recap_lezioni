@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   RadioGroup.prototype.changeFocus = function(idx) {
     // Set the old button to tabindex -1
-    document.querySelector("li[tabindex='0'] span").setAttribute('class','tab-1');
+    document.querySelector("li[tabindex='0'] span").setAttribute('class','tab-1 descrizione');
     this.focusedButton.tabIndex = -1;
     this.focusedButton.removeAttribute('checked');
 
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     this.focusedButton.tabIndex = 0;
     this.focusedButton.focus(); // sposta il focus su quell'oggetto
     this.focusedButton.setAttribute('checked', 'checked');
-    document.querySelector("li[tabindex='0'] span").setAttribute('class','tab0');
+    document.querySelector("li[tabindex='0'] span").setAttribute('class','tab0 descrizione');
   };
 
   var group1 = new RadioGroup('#group1');

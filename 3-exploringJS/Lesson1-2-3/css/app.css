@@ -13,9 +13,8 @@
   top:0;
 }
 
-.desc-skip-link {
-  color: red;
-  left: 100px;
+.descrizione{
+  color:red;
 }
 
 // RADIOGROUP
@@ -56,14 +55,14 @@
   border-radius: 50%;
 }
 
-.tab0, .tab-1 {
-  color:red;
-}
-
 .tab0:after {
   content: '<--TabIndex = 0 perchè sia selezionato nella tabulazione';
 }
 
 .tab-1:after {
   content: '<--TabIndex = -1 perchè non sia selezionato nella tabulazione';
+}
+
+.semantics-image{
+  width: 40%;
 }
