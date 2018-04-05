@@ -1,0 +1,272 @@
+- <meta name="viewport" content="width=device-width, initial-scale=1.0"> // Imposta che il contenuto si adatti alle dimenstioni dello schermo
+- fare bottoni e link grandi almeno 48*48 px (min-width/min-height) su dispositivi
+- iniziare a lavorare preparando i siti per i dispositivi piccoli e poi adattarlo anche a queli grandi
+- <head> <link rel="stylesheet" media="screen and (min-width:500px)" href="nome.css"> </head>
+
+oppure
+
+
+nel css
+
+@media screen and (max-width: 400px) {
+      body{background-color:red;}
+    }
+    
+    @media screen and (min-width: 401px) and (max-width: 599px) {
+      body{background-color:green;}
+    }
+
+
+//settare impostazioni in base alla grandezza della finestra
+
+-flex-wrap:wrap; //fa andare a capo gli elementi al posto di farli adattare quando si stringe la pagina
+-order:-1; // serve per indicare l'ordine degli elementi flex
+
+-z-index funziona solo con position:absolute;
+
+-...:before{content:...} / ...:after{content:...} //inserisce il content prima o dopo l'attuale contenuto dell'elemento come oggetto inline
+
+-element{...:attr(nomeAttributo)} // restituisce il valore dell'attributo indicato di quell'elemento
+
+-una buona lunghezza delle righe in una pagina web è intorno a 65 caratteri per riga
+
+-calc() // nei css permette di fare calcoli tra diverse unità di misura es % e px
+
+-usare jpeg per immagini raster e svg o al massimo png per immagini vettoriali
+
+-
+<picture>
+      
+	<source
+  
+		media="(max-width: 400px)"
+        
+		srcset="images/still_life-400_large.jpg,">
+     //a larghezza 400px<= carica questa immagine 
+	<source
+        
+		media="(max-width: 800px)"
+        
+		srcset="images/still_life-800_large_1x.jpg, images/still_life-1600_large_2x.jpg 2x">
+    
+		//a larghezza 800<= carica quella da 800 su schermi a normale densità e da 1600 in quelli ad alta densità 
+	<img src="images/still_life-1600_large_2x.jpg" alt="still life image">
+    
+</picture>
+
+
+-MARKDOWN SYNTAX:
+	`testo` : linea di codice
+	```
+	testo
+	testo
+	```   : paragrafi di codice
+	(alt+96 = `)
+	#testo : header (# h1, ## h2  ecc)
+	**testo** : grassetto
+	[Descrizione](URL) : link
+
+
+- JS ES6
+-`Ciao sono ${user.name}, come stai?
+  Io Bene!` nuovo metodo di concatenamento, tiene conto anche degli a capo
+-Destrutturare:
+const point = [10, 25, -34];
+
+const [x, y, z] = point;
+
+console.log(x, y, z);
+//10 25 -34
+
+-
+const gemstone = {
+  type: 'quartz',
+  color: 'rose',
+  carat: 21.29
+};
+const {type, carat, color} = gemstone; //essendoci una const color le da il valore di gemstone.color
+console.log(type, color, carat);
+// quartz rose 21.29
+
+-
+const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+for (const digit of digits) {  //il for of scorre gli elementi iterabili saltando gli altri tipo le funzioni
+  if (digit % 2 === 0) {
+    continue;			//per saltare gli elementi pari
+  }
+  console.log(digit);
+}
+
+/*
+1
+3
+5
+7
+9*/
+
+in const [] e const {} le parentesi indicano l'elemento che viene destrutturato
+
+con l'ES6 si può dichiarare const gemstone = { type, color} invece di gemstone = { type:type, color:color} quando il nome e il valore sono uguali
+e const gemstone = {calculateWorth() {....}} al posto di const gemstone = {calculateWorth: function() {....}}
+
+- SPREAD OPERATOR
+const fruits = ["apples", "bananas", "pears"];
+
+const vegetables = ["corn", "potatoes", "carrots"];
+
+
+const produce = [...fruits,...vegetables];
+
+	// i ... restituiscono gli elementi dell'array in serie
+console.log(produce);
+
+
+// ["apples", "bananas", "pears", "corn", "potatoes", "carrots"]
+
+- REST PARAMETER
+const order = [20.17, 18.67, 1.50, "cheese", "eggs", "milk", "bread"];
+const [total, subtotal, tax, ...items] = order;		//al contrario di prima i ... permettono di inserire diversi elementi in 1 array
+console.log(total, subtotal, tax, items);
+
+// 20.17 18.67 1.5 ["cheese", "eggs", "milk", "bread"]
+
+es.
+function sum(...nums) {
+  let total = 0;  
+  for(const num of nums) {
+    total += num;
+  }
+  return total;
+}
+
+con questa funzione posso passare qualunque numero di argomenti a sum()
+
+- SHELL
+
+-echo ... : stampa ... tipo console.log
+
+es. 
+echo $COLUMNS x $LINES 
+stampa: 80 x 24  che sono le dimensioni della shell
+
+-ls o ls ... : mostra il contenuto della directory
+
+-cd per spostarsi in una directory 
+
+-cd .. per andare indietro nelle directorys
+
+-con il ; si possono eseguire 2 comandi in serie es cd .. ; ls
+
+-pwd mi dice in quale directory sono
+
+- ~ tilde indica la home directory
+
+- ls -l ... mostra una lista più dettagliata della directory
+
+-mkdir : crea una directory
+
+-mv [file da spostare] [dove spostarlo] : per spostare un file
+ mv .../*.pdf [dove spostarlo] : sposta tutti i file pdf
+
+- curl [URL] restituisce l'html
+ curl [URL] -L restituisce il javascript della pagina (?)
+
+- curl -o [nome file (es. google.html)] -L [URL]   scarica la pagina e la salva con il nome indicato
+
+- less [nome file]  stampa il contenuto del file in modo che si possa scorrere
+
+- rm [nome files] cancella i file indicati
+- rmdri [nome directory] per cancellare una cartella
+
+-grep [parola] [nome file] restituisce tutte le righe di quel file che contengono quella parola
+-grep [parola] [nome file] | less manda il risultato al comando less
+
+-grep -c [parola] [nome file] restituisce il numero di risultati
+
+- [nome var]='valore' crea variabile
+ echo $[nome variabile] stampa la variabile
+
+- PATH=$PATH:/[nome directory] per aggiungere una directory alla path
+
+- alias ll='ls -la' alias permette di creare alias brevi per comandi più lunghi 
+ alias : il semplice comando alias mostra tutti gli alias creati
+
+- .gitignore  creando un file con questo nome ci si possono indicare i file che vogliamo che git ignori
+
+
+- JS comandi DOM
+
+-element.innerHTML = 'testo' // per impostare il testo di questo elemento, senza = ...  restituisce il testo
+-elemento.textContent  // come sopra ma non riconosce i tag html nel caso il valore assegnato contenga tag viene mostrato come stringa
+-elemento.innerText // come sopra ma tiene conto anche delle impostazioni css (es. tutto maiuscolo)
+
+-var nuovoElemento = document.createElement('nome tag'); // crea un elemento 
+-elemento.appendChild(nuovoElemento); // serve per aggiungere un elemento alla fine dell'elemento "elemento"
+-element.removeChild(Figlio); //rimmuove l'elemento "Figlio" dal padre "elemento" e lo restituisce(se si vuole salvare in una var)
+-element.remove(); // rimmuove un element
+-elemento.insertAdjacentHTML('posizione',text); // inserisce un testo (anche html) ma si può scegliere la posizione
+
+ecco le 4 posizioni possibili
+
+<!-- beforebegin -->
+<p>
+    <!-- afterbegin -->
+    Existing text/HTML content
+    <!-- beforeend -->
+</p>
+<!-- afterend -->
+
+-parent.firstElementChild // contiene il primo figlio
+
+-
+	mainHeading.style.color = 'blue';
+	mainHeading.style.backgroundColor = 'orange';
+	mainHeading.style.fontSize = '3.5em';
+
+	// .style.  permette di cambiare stile agli elementi
+
+- .style.cssText = " " // permette di cambiare stile agli elementi usando direttamente codice css es.(color: blue; background-color: orange;)
+-child.parentElement // contiene il parent dell'elemento "child"
+
+- .setAttribute('href', '#');  // permette di settare il valore di un attributo
+
+- .className // restituisce la lista di classi dell'elemento divise con uno spazio in una stringa o si può usare per assegnare una classe
+- .classList. // restituisce una lista di classi ed ha diverse proprietà come queste:
+	.add() // per aggiungere una classe alla lista
+	.remove() // per rimmuovere una classe dalla lista
+	.toggle() // per aggiungere una classe se manca o rimmuoverla se già c'è
+	.contains() //	restituisce vero/falso in base all'esistenza o no della classe nell'elemento
+
+-
+function myEventListeningFunction() {
+    console.log('howdy');
+}
+
+// adds a listener for clicks, to run the `myEventListeningFunction` function
+document.addEventListener('click', myEventListeningFunction);	// Aggiunge un event listener all elemento "document"
+
+// immediately removes the click listener that should run the `myEventListeningFunction` function
+document.removeEventListener('click', myEventListeningFunction); //rimmuove l'event listener (funziona solo se l'evento è identico e la funzione è la stessa(non semplicemente uguale ma proprio la stessa))
+
+//aggiungendo un parametro alla funzione (es. myEventListeningFunction(event){...}) event contiene molte informazioni sull'evento
+
+-
+document.querySelector('#content').addEventListener('click', function (evt) {
+    if (evt.target.nodeName === 'SPAN') {  // .target indica l'elemento dell'evento e .nodeName da il nome dell'elemento
+        console.log('A span was clicked with text ' + evt.target.textContent);
+    }
+}); 
+
+-document.addEventListener('DOMContentLoaded', function () {...});   //per eseguire il contenuto dopo che tutti gli elementi sono stati caricati
+
+- performance.now() //restituisce il tempo passato dall'avvio della pagina
+
+- document.createDocumentFragment() // crea un DocumentFragment che è un elemento generico a cui si possono aggiungere figli ma che non esiste veramente nella pagina, quindi si impiega meno tempo ad utilizzarlo
+
+-
+setTimeout(function sayHi() {
+    console.log('Howdy');
+}, 1000);
+
+//esegue la funzione dopo 1000 millisecondi

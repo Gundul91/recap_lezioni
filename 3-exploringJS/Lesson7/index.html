@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lesson7</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/app.js"></script>
+</head>
+<body>
+  <main id="maincontent">
+    <img src="img/descrizione_oggetti.jpg" />
+    <p class="sfondo_1">
+      <span class="titolo">Dichiarare un oggetto:</span>
+      const myObject = {};<br />
+      const myObject = new Object();
+      <span class="importante descrizione">Queste due dichiarazioni sono equivalenti</span>
+    </p>
+    <p class="sfondo_2">
+      <span class="titolo">Aggiungere proprietà/metodi ad un oggetto:</span>
+      const printer = {};<br />
+      printer.on = true;<br />
+      printer['remainingSheets'] = 168;<br />
+      <span class="importante descrizione">Aggiungere 2 proprietà indicando il nome dopo il ./tra virgolette e il valore</span><br />
+      printer.print = function () { console.log('The printer is printing!'); };<br />
+      <span class="importante descrizione">Aggiungere 1 metodo nello stesso modo</span>
+    </p>
+    <p class="sfondo_1">
+      <span class="titolo">Eliminare una proprietà/metodo di un oggetto:</span>
+      delete printer.mode;<br />
+    </p>
+    <p class="descrizione">
+      Passando una variabile ad una funzione di passa solo una copia del valore, quindi non si modifica l'originale<br />passando un oggetto si passa un riferimento all'oggetto, quindi si modifica l'oggetto originale
+    </p>
+    <p class="sfondo_2">
+      <span class="titolo">Aggiungere proprietà/metodi ad un oggetto:</span>
+      const triangle = {<br />
+        type: 'scalene',<br />
+        identify: function () {<br />
+          console.log(`This is a ${this.type} triangle.`);<span class="importante descrizione">this. permette ri chiamare metodi o proprietà dell'oggetto all'interno di un suo metodo</span><br />
+        }<br />
+      };<br />
+      <span class="importante descrizione">Aggiungere 2 proprietà indicando il nome dopo il ./tra virgolette e il valore</span><br />
+    </p>
+  </main>
+  <footer class="link-utili">
+
+  </footer>
+</body>
+</html>
