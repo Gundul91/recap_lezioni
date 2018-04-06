@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lesson7</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/app.js"></script>
+</head>
+<body>
+  <main id="maincontent">
+    <p class="sfondo_1">
+      <span class="titolo">forEach() map() filter():</span>
+      [1, 5, 2, 4, 6, 3].forEach(function logIfOdd(n) {<br />
+        if (n % 2 !== 0) {<br />
+          console.log(n);<br />
+        }<br />
+      });<br />
+      // 1<br />
+      // 5<br />
+      // 3<br />
+      <span class="importante descrizione">esegue una funzione per ogni elemento dell'array</span><br />
+      const names = ['David', 'Richard', 'Veronika'];<br />
+      const nameLengths = names.map(function(name) {<br />
+        return name.length;<br />
+      });<br />
+      // [5, 7, 8]<br />
+      <span class="importante descrizione">crea un array contenente tutti gli elementi restituiti dalla funzione eseguita su ogni elemento dell'array</span><br />
+      const names = ['David', 'Richard', 'Veronika'];<br />
+      const shortNames = names.filter(function(name) {<br />
+        return name.length < 6;<br />
+      });<br />
+      console.log(shortNames);<br />
+      // ['David']<br />
+      <span class="importante descrizione">crea un array contenente tutti gli elementi per cui la funzione ha restituito 'true'</span>
+
+    </p>
+    <p class="sfondo_2">
+      <span class="titolo">Immediately-Invoked Function Expressions (IIFE):</span>
+      (function (name){<br />
+          alert(`Hi, ${name}`);<br />
+        }<br />
+      )('Andrew');<br />
+      <span class="importante descrizione">in questo modo la funzione viene eseguita subito dopo esser stata dichiarata</span><br />
+    </p>
+      <p class="sfondo_1">
+        <span class="titolo">CHIUSURE (CLOSURES):</span>
+        function outerFunction() {<br />
+          let num1 = 5;<br />
+          return function(num2) {<br />
+            console.log(num1 + num2);<br />
+          };<br />
+        }<br />
+        let result = outerFunction();<br />
+        result(10);<br />
+        <span class="importante descrizione">Una chiusura permette di rendere inraggiungibili le variabili interne alla funzioni da fuori</span><br />
+      </p>
+  </main>
+  <footer class="link-utili">
+
+  </footer>
+</body>
+</html>

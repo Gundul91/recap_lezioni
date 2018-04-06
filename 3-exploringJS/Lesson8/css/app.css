@@ -1,0 +1,21 @@
+.descrizione, .titolo {
+  color:red;
+}
+
+.importante {
+  font-size: 1.2em;
+}
+
+.sfondo_1 {
+  background-color: rgba(147, 236, 24, 0.16);
+}
+
+.sfondo_2{
+  background-color: rgba(24, 45, 236, 0.16);
+}
+
+.titolo {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: block;
+}
