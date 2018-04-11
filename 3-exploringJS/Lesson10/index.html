@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lesson10</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/app.js"></script>
+</head>
+<body>
+  <main id="maincontent">
+    <pre class="sfondo_1">
+      <span class="titolo">Arrow function ( => ):</span>
+      const greet = name => `Hello ${name}!`;
+      greet('Asser');
+      <span class="importante descrizione">funzione con 1 parametro e 1 riga da eseguire</span>
+
+      const sayHi = () => console.log('Hello Udacity Student!');
+      sayHi();
+      <span class="importante descrizione">funzione senza parametri e 1 riga da eseguire</span>
+
+      const orderIceCream = (flavor, cone) => console.log(`Here's your ${flavor} ice cream in a ${cone} cone.`);
+      orderIceCream('chocolate', 'waffle');
+      <span class="importante descrizione">funzione con 2 parametri e 1 riga da eseguire</span>
+
+      const upperizedNames = ['Farrin', 'Kagure', 'Asser'].map( name => {
+        name = name.toUpperCase();
+        return `${name} has ${name.length} characters in their name`;
+      });
+      <span class="importante descrizione">funzione con 1 parametro e 2 righe da eseguire</span>
+
+      <span class="importante descrizione">IMPORTANTE: il valore di THIS è quello del this in cui viene chiama la arrow function</span>
+
+    </pre>
+    <pre class="sfondo_2">
+      <span class="titolo">Parametri di default:</span>
+      function greet(name = 'Student', greeting = 'Welcome') {
+        return `${greeting} ${name}!`;
+      }
+      <span class="importante descrizione">I valori inseriti nelle tonde sono i valori di default nel caso non vengano passati quando viene chiamata la funzione</span>
+
+      greet(); // Welcome Student!
+      greet('James'); // Welcome James!
+      greet('Richard', 'Howdy'); // Howdy Richard!
+
+      <span class="importante descrizione">Parametri di default con array:</span>
+      function createGrid([width = 5, height = 5] = []) {
+        return `Generates a ${width} x ${height} grid`;
+      }
+      <span class="importante descrizione">il "= []" serve come array vuota di default in caso venga chiamata la funzione senza parametri</span>
+
+      <span class="importante descrizione">Parametri di default con oggetti:</span>
+      function houseDescriptor({houseColor = 'green', shutterColors = ['red']} = {}) {
+        return `I have a ${houseColor} house with ${shutterColors.join(' and ')} shutters`;
+      }
+      <span class="importante descrizione">il "= {}" serve come oggetto vuota di default in caso venga chiamata la funzione senza parametri</span>
+    </pre>
+  </main>
+  <footer class="link-utili">
+
+  </footer>
+</body>
+</html>
