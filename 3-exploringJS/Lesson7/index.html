@@ -9,52 +9,55 @@
 <body>
   <main id="maincontent">
     <img src="img/descrizione_oggetti.jpg" />
-    <p class="sfondo_1">
+    <pre class="sfondo_1">
       <span class="titolo">Dichiarare un oggetto:</span>
-      const myObject = {};<br />
+      const myObject = {};
       const myObject = new Object();
       <span class="importante descrizione">Queste due dichiarazioni sono equivalenti</span>
-    </p>
-    <p class="sfondo_2">
+    </pre>
+    <pre class="sfondo_2">
       <span class="titolo">Aggiungere proprietà/metodi ad un oggetto:</span>
-      const printer = {};<br />
-      printer.on = true;<br />
-      printer['remainingSheets'] = 168;<br />
-      <span class="importante descrizione">Aggiungere 2 proprietà indicando il nome dopo il ./tra virgolette e il valore</span><br />
-      printer.print = function () { console.log('The printer is printing!'); };<br />
+      const printer = {};
+      printer.on = true;
+      printer['remainingSheets'] = 168;
+      <span class="importante descrizione">Aggiungere 2 proprietà indicando il nome dopo il ./tra virgolette e il valore</span>
+
+      printer.print = function () { console.log('The printer is printing!'); };
       <span class="importante descrizione">Aggiungere 1 metodo nello stesso modo</span>
-    </p>
-    <p class="sfondo_1">
+    </pre>
+    <pre class="sfondo_1">
       <span class="titolo">Eliminare una proprietà/metodo di un oggetto:</span>
-      delete printer.mode;<br />
-    </p>
-    <p class="descrizione">
-      Passando una variabile ad una funzione di passa solo una copia del valore, quindi non si modifica l'originale<br />passando un oggetto si passa un riferimento all'oggetto, quindi si modifica l'oggetto originale
-    </p>
-    <p class="sfondo_2">
+      delete printer.mode;
+    </pre>
+    <pre class="descrizione">
+      Passando una variabile ad una funzione di passa solo una copia del valore, quindi non si modifica l'originalepassando un oggetto si passa un riferimento all'oggetto, quindi si modifica l'oggetto originale
+    </pre>
+    <pre class="sfondo_2">
       <span class="titolo">Utilizzare il THIS:</span>
-      const triangle = {<br />
-        type: 'scalene',<br />
-        identify: function () {<br />
-          console.log(`This is a ${this.type} triangle.`);<span class="importante descrizione">this. permette ri chiamare metodi o proprietà dell'oggetto all'interno di un suo metodo</span><br />
-        }<br />
-      };<br />
-    </p>
-    <p class="sfondo_1">
+      const triangle = {
+        type: 'scalene',
+        identify: function () {
+          console.log(`This is a ${this.type} triangle.`);<span class="importante descrizione">this. permette ri chiamare metodi o proprietà dell'oggetto all'interno di un suo metodo</span>
+        }
+      };
+    </pre>
+    <pre class="sfondo_1">
       <span class="titolo">Object.keys e Object.values:</span>
-      const dictionary = {<br />
-        car: 'automobile',<br />
-        apple: 'healthy snack',<br />
-        cat: 'cute furry animal',<br />
-        dog: 'best friend'<br />
-      };<br />
-      Object.keys(dictionary);<br />
-      // [car, apple, 'cat', 'dog']<br />
-      <span class="importante descrizione">Object.keys restituisce un array di stringhe con le chiavi</span><br />
-      Object.values(dictionary);<br />
-      // ['automobile', 'healthy snack', 'cute furry animal', 'best friend']<br />
-      <span class="importante descrizione">Object.values restituisce un array con i valori</span><br />
-    </p>
+      const dictionary = {
+        car: 'automobile',
+        apple: 'healthy snack',
+        cat: 'cute furry animal',
+        dog: 'best friend'
+      };
+
+      Object.keys(dictionary);
+      // [car, apple, 'cat', 'dog']
+      <span class="importante descrizione">Object.keys restituisce un array di stringhe con le chiavi</span>
+
+      Object.values(dictionary);
+      // ['automobile', 'healthy snack', 'cute furry animal', 'best friend']
+      <span class="importante descrizione">Object.values restituisce un array con i valori</span>
+    </pre>
   </main>
   <footer class="link-utili">
 

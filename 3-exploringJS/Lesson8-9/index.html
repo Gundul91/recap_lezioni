@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lesson8-9</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/app.js"></script>
+</head>
+<body>
+  <main id="maincontent">
+    <pre class="sfondo_1">
+      <span class="titolo">forEach() map() filter():</span>
+      [1, 5, 2, 4, 6, 3].forEach(function logIfOdd(n) {
+        if (n % 2 !== 0) {
+          console.log(n);
+        }
+      });
+      // 1
+      // 5
+      // 3
+      <span class="importante descrizione">esegue una funzione per ogni elemento dell'array</span>
+
+      const names = ['David', 'Richard', 'Veronika'];
+      const nameLengths = names.map(function(name) {
+        return name.length;
+      });
+      // [5, 7, 8]
+      <span class="importante descrizione">crea un array contenente tutti gli elementi restituiti dalla funzione eseguita su ogni elemento dell'array</span>
+
+      const names = ['David', 'Richard', 'Veronika'];
+      const shortNames = names.filter(function(name) {
+        return name.length < 6;
+      });
+      console.log(shortNames);
+      // ['David']
+      <span class="importante descrizione">crea un array contenente tutti gli elementi per cui la funzione ha restituito 'true'</span>
+
+    </pre>
+    <pre class="sfondo_2">
+      <span class="titolo">Immediately-Invoked Function Expressions (IIFE):</span>
+      (function (name){
+          alert(`Hi, ${name}`);
+        }
+      )('Andrew');
+      <span class="importante descrizione">in questo modo la funzione viene eseguita subito dopo esser stata dichiarata</span>
+    </pre>
+    <pre class="sfondo_1">
+      <span class="titolo">CHIUSURE (CLOSURES):</span>
+      function outerFunction() {
+        let num1 = 5;
+        return function(num2) {
+          console.log(num1 + num2);
+        };
+      }
+
+      let result = outerFunction();
+      result(10);
+      <span class="importante descrizione">Una chiusura permette di rendere inraggiungibili le variabili interne alla funzioni da fuori</span>
+    </pre>
+    <pre class="sfondo_2">
+      <span class="titolo">Constructor Function:</span>
+      function SoftwareDeveloper(name) {
+        this.favoriteLanguage = 'JavaScript';
+        this.name = name;
+        this.foo = function () { console.log(name);};
+      }
+      <span class="importante descrizione">this. per assegnare delle proprietà ad ogni oggetto creato con questo costruttore</span>
+    </pre>
+    <pre class="sfondo_1">
+      <span class="titolo">.call / .apply / .bind:</span>
+      const cat = {
+        name: 'Bailey'
+      };
+
+      function sayHello(message) {
+        console.log(`${message}, ${this.name}`);
+      }
+
+      sayHello.call(cat, 'Nice to see you');<span class="importante descrizione">.call(this, argomento, argomento ....) chiama la funzione con il this indicato</span>
+
+      sayHello.apply(cat, ['Hello']);<span class="importante descrizione">.apply(this, [array di argomenti]) chiama la funzione con il this indicato</span>
+
+      let func = sayHello.bind(cat);<span class="importante descrizione">.bind(this) restituisce una funzione con il this indicato</span>
+      func('Hello');
+      <span class="importante descrizione">Una chiusura permette di rendere inraggiungibili le variabili interne alla funzioni da fuori</span>
+    </pre>
+    <pre class="sfondo_2">
+      <span class="titolo">Prototypal Inheritance:</span>
+      function Hamster() {
+        this.hasFur = true;
+      }
+
+      let waffle = new Hamster();
+      let pancake = new Hamster();
+
+      Hamster.prototype.eat = function () {
+        console.log('Chomp chomp chomp!');
+      };<span class="importante descrizione">aggiungendo il metodo al prototipo si evita che ad ogni offetto creato sia occupato spazio per una funzione</span>
+      Hamster.prototype = {
+        isHungry: false,
+        color: 'brown'
+      };<span class="importante descrizione">cambiando completamente prototipo gli oggetti creati precedentemente mantengono il vecchio prototipo</span>
+    </pre>
+  </main>
+  <footer class="link-utili">
+
+  </footer>
+</body>
+</html>
