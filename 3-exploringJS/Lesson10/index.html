@@ -54,6 +54,74 @@
       }
       <span class="importante descrizione">il "= {}" serve come oggetto vuota di default in caso venga chiamata la funzione senza parametri</span>
     </pre>
+    <pre class="sfondo_1">
+      <span class="titolo">Classi:</span>
+      class Plane {
+        constructor(numEngines) {
+          this.numEngines = numEngines;
+          this.enginesActive = false;
+        }
+        <span class="importante descrizione">costruttore</span>
+
+        static badWeather(planes) {
+          for (let plane of planes) {
+            plane.enginesActive = false;
+          }
+        }
+        <span class="importante descrizione">essendo static può essere chiamata con Plane.badWeather([...])</span>
+
+        startEngines() {
+          console.log('starting engines…');
+          this.enginesActive = true;
+        }
+        <span class="importante descrizione">metodo dell'oggetto</span>
+      }
+    </pre>
+    <pre class="sfondo_2">
+      <span class="titolo">Sottoclasse:</span>
+      class Tree {
+        constructor(size = '10', leaves = {spring: 'green', summer: 'green', fall: 'orange', winter: null}) {
+          this.size = size;
+          this.leaves = leaves;
+          this.leafColor = null;
+        }
+
+        changeSeason(season) {
+          this.leafColor = this.leaves[season];
+          if (season === 'spring') {
+            this.size += 1;
+          }
+        }
+      }
+
+      class Maple extends Tree {
+        constructor(syrupQty = 15, size, leaves) {
+          super(size, leaves);
+          <span class="importante descrizione">super(...) richiama il costruttore della classe parente</span>
+          this.syrupQty = syrupQty;
+        }
+        <span class="importante descrizione">extend indica che è una sottoclasse di Tree</span>
+
+        changeSeason(season) {
+          super.changeSeason(season);
+          if (season === 'spring') {
+            this.syrupQty += 1;
+          }
+        }
+        <span class="importante descrizione">super.changeSeason(...) richiama il metodo della classe parente</span>
+
+        gatherSyrup() {
+          this.syrupQty -= 3;
+        }
+      }
+
+      const myMaple = new Maple(15, 5);
+      myMaple.changeSeason('fall');
+      myMaple.gatherSyrup();
+      myMaple.changeSeason('spring');
+      
+      <span class="importante descrizione">IMPORTANTE: Prima di usare il this nella sottocalsse deve essere richiamato almeno una volta il "super"</span>
+    </pre>
   </main>
   <footer class="link-utili">
 
