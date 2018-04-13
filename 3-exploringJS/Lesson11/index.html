@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lesson11</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/app.js"></script>
+</head>
+<body>
+  <main id="maincontent">
+    <pre class="sfondo_1">
+      <span class="titolo">Proxie:</span>
+      const richard = {status: 'looking for work'};
+      const handler = {
+          get(target, propName) {
+              console.log(target); // the `richard` object, not `handler` and not `agent`
+              console.log(propName); // the name of the property the proxy (`agent` in this case) is checking
+          }
+      };
+      const agent = new Proxy(richard, handler);
+      agent.status; // logs out the richard object (not the agent object!) and the name of the property being accessed (`status`)
+      <span class="importante descrizione">Il proxie permette di intercettare una chiamata all'oggetto "target" ed eseguirci altro codice</span>
+      <span class="importante descrizione">ci sono 13 diverse "trappole" in questo caso è usato il "get"</span>
+    </pre>
+    <pre class="sfondo_2">
+      <span class="titolo">Funzione Generatore:</span>
+      
+<span class="importante descrizione">Restituire un valore dalla funzione:</span>
+
+      function* getEmployee() {<span class="importante descrizione">l'asterisco dopo "function" indica che è un generatore</span>
+          console.log('the function has started');
+
+          const names = ['Amanda', 'Diego', 'Farrin', 'James', 'Kagure', 'Kavita', 'Orit', 'Richard'];
+
+          for (const name of names) {
+              yield name;<span class="importante descrizione">yeld indica dove deve fermarsi il codice e quello dopo yeld viene restituito</span>
+          }
+
+          console.log('the function has ended');
+      }
+
+      const generatorIterator = getEmployee();
+      let result = generatorIterator.next();
+      result.value // is "Amanda"
+      <span class="importante descrizione">result.value perchè result è un iteratore object(value, done)</span>
+
+      generatorIterator.next().value // is "Diego"
+      generatorIterator.next().value // is "Farrin"
+      <span class="importante descrizione">il "= {}" serve come oggetto vuota di default in caso venga chiamata la funzione senza parametri</span>
+
+
+<span class="importante descrizione">Passare un valore alla funzione:</span>
+
+      function* displayResponse() {
+          const response = yield;<span class="importante descrizione">....=yield per ricevere un valore dall'esterno della funzione</span>
+          console.log(`Your response is "${response}"!`);
+      }
+
+      const iterator = displayResponse();
+
+      iterator.next(); // starts running the generator function
+      iterator.next('Hello Udacity Student'); // send data into the generator<span class="importante descrizione">per passare il valore alla funzione</span>
+      // the line above logs to the console: Your response is "Hello Udacity Student"!
+    </pre>
+  </main>
+  <footer class="link-utili">
+
+  </footer>
+</body>
+</html>
